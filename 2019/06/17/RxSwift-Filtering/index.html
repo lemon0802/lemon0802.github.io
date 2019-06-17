@@ -96,14 +96,34 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LemonHome">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="#1 Debounce 只有在特定的时间跨度已经过去而没有发出另一个元素，才从在新的Observable中发出一个元素 12345678910111213141516171819202122232425let t = Observable&amp;lt;Int&amp;gt;    .interval(0.5, scheduler: MainScheduler.instance)    .take(5)t.deb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RxSwift Filtering">
+<meta property="og:url" content="http://yoursite.com/2019/06/17/RxSwift-Filtering/index.html">
 <meta property="og:site_name" content="LemonHome">
+<meta property="og:description" content="#1 Debounce 只有在特定的时间跨度已经过去而没有发出另一个元素，才从在新的Observable中发出一个元素 12345678910111213141516171819202122232425let t = Observable&amp;lt;Int&amp;gt;    .interval(0.5, scheduler: MainScheduler.instance)    .take(5)t.deb">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g43zv2u56ej30zk0h8taz.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g443ku99klj30zk0h8wj4.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g443vi0tzbj30zk0h8adb.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79gy1g443y5obtpj30zk0h80wm.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g444izz85kj30zk0h8tbt.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g444ydapaej30zk0gydir.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79gy1g445lblcimj30zk0gywi8.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g445x2bo11j30hd081aa9.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g446a39g4kj30zk0gygpv.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g446zybtaaj30hb0aomxm.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/006tNc79ly1g4475v4c0lj30mx07mmxm.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/006tNc79ly1g447g7pq2wj30zk0gy0wo.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g448n97e8yj30hc083jrm.jpg">
+<meta property="og:updated_time" content="2019-06-17T15:25:50.030Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LemonHome">
+<meta name="twitter:title" content="RxSwift Filtering">
+<meta name="twitter:description" content="#1 Debounce 只有在特定的时间跨度已经过去而没有发出另一个元素，才从在新的Observable中发出一个元素 12345678910111213141516171819202122232425let t = Observable&amp;lt;Int&amp;gt;    .interval(0.5, scheduler: MainScheduler.instance)    .take(5)t.deb">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/006tNc79gy1g43zv2u56ej30zk0h8taz.jpg">
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="LemonHome" type="application/atom+xml">
@@ -112,7 +132,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/17/RxSwift-Filtering/">
 
 
 
@@ -122,7 +142,7 @@
   };
 </script>
 
-  <title>LemonHome</title>
+  <title>RxSwift Filtering | LemonHome</title>
   
 
 
@@ -170,8 +190,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -209,7 +228,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -271,9 +290,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -305,10 +324,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/17/RxSwift-Filtering/" class="post-title-link" itemprop="url">RxSwift Filtering</a>
+          <h1 class="post-title" itemprop="name headline">RxSwift Filtering
+
               
             
           </h1>
@@ -372,9 +389,7 @@
       
 
       
-        
-          
-            <h2 id="1-Debounce"><a href="#1-Debounce" class="headerlink" title="#1 Debounce"></a>#1 Debounce</h2><p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g43zv2u56ej30zk0h8taz.jpg" alt></p>
+        <h2 id="1-Debounce"><a href="#1-Debounce" class="headerlink" title="#1 Debounce"></a>#1 Debounce</h2><p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g43zv2u56ej30zk0h8taz.jpg" alt></p>
 <p>只有在特定的时间跨度已经过去而没有发出另一个元素，才从在新的<code>Observable</code>中发出一个元素</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> t = <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;</span><br><span class="line">    .interval(<span class="number">0.5</span>, scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">    .take(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">t.debounce(<span class="number">0.7</span>, scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">    .subscribe &#123; (event) <span class="keyword">in</span></span><br><span class="line">        <span class="built_in">print</span>(event)</span><br><span class="line">    &#125;</span><br><span class="line">    .disposed(by: bag)</span><br><span class="line">    </span><br><span class="line">t.debounce(<span class="number">0.4</span>, scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">    .subscribe &#123; (event) <span class="keyword">in</span></span><br><span class="line">        <span class="built_in">print</span>(event)</span><br><span class="line">    &#125;</span><br><span class="line">    .disposed(by: bag)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">0</span></span><br><span class="line"><span class="comment">1</span></span><br><span class="line"><span class="comment">2</span></span><br><span class="line"><span class="comment">3</span></span><br><span class="line"><span class="comment">4</span></span><br><span class="line"><span class="comment">next(4)</span></span><br><span class="line"><span class="comment">completed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
@@ -459,8 +474,6 @@
 <p><code>Throttle</code>: the original function be called at most once per specified period.<br><code>Debounce</code>: the original function be called after the caller stops calling the decorated function after a specified period.</p>
 </blockquote>
 
-          
-        
       
     </div>
 
@@ -483,202 +496,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/09/Transforming/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lemon Fan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LemonHome">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/09/Transforming/" class="post-title-link" itemprop="url">RxSwift Transforming</a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2019/06/09/Transforming/" rel="next" title="RxSwift Transforming">
+                <i class="fa fa-chevron-left"></i> RxSwift Transforming
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-09 15:54:35" itemprop="dateCreated datePublished" datetime="2019-06-09T15:54:35+08:00">2019-06-09</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-16 23:46:18" itemprop="dateModified" datetime="2019-06-16T23:46:18+08:00">2019-06-16</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="关于RxSwift的转换方法"><a href="#关于RxSwift的转换方法" class="headerlink" title="关于RxSwift的转换方法"></a>关于RxSwift的转换方法</h1><h2 id="1-Buffer"><a href="#1-Buffer" class="headerlink" title="#1 Buffer"></a>#1 Buffer</h2><p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g3uyahmdwlj30zk0hsacm.jpg" alt></p>
-<p>使用指定的调度程序运行计时器，将<code>Observable</code>的每个元素投射到缓冲区中，该缓冲区在缓冲区已满或已经过一定时间时发出。</p>
-<p>打个比喻，在现实世界中，当所有的座位都被占满时，渡轮离开码头的行为，或者在预定的出发时间，无论哪个事件首先发生。</p>
-<p>注意，如果源<code>Observable</code>发出一个onError通知，Buffer将立即传递该通知，而不会首先发出它正在组装的缓冲区，即使该缓冲区包含源观察对象在发出错误通知之前发出的项。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> observable = <span class="type">Observable</span>.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line"><span class="comment">//每缓存2个元素则组合起来一起发出。</span></span><br><span class="line"><span class="comment">//如果3秒钟内不够2个也会发出（有几个发几个，一个都没有发空数组 []）</span></span><br><span class="line">observable.buffer(timeSpan: <span class="number">3</span>, <span class="built_in">count</span>: <span class="number">2</span>, scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">    .subscribe&#123;</span><br><span class="line">        <span class="built_in">print</span>($<span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    .disposed(by: bag)</span><br><span class="line">    </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">next([1, 2])</span></span><br><span class="line"><span class="comment">next([3, 4])</span></span><br><span class="line"><span class="comment">next([5])</span></span><br><span class="line"><span class="comment">completed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-FlatMap"><a href="#2-FlatMap" class="headerlink" title="#2 FlatMap"></a>#2 FlatMap</h2><p><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g3uy9ae5qrj30zk0h8q5d.jpg" alt></p>
-<p>将一个可观察序列的每个元素投射到一个可观察序列中，并将得到的可观察序列合并成一个可观察序列。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> t = <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;</span><br><span class="line">            .interval(<span class="number">0.5</span>, scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">            .take(<span class="number">4</span>)</span><br><span class="line">        </span><br><span class="line">t.flatMap &#123; (x: <span class="type">Int</span>) -&gt; <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt; <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">let</span> newTimer = <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;</span><br><span class="line">        .interval(<span class="number">0.2</span>, scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">        .take(<span class="number">4</span>)</span><br><span class="line">        .<span class="built_in">map</span> &#123; <span class="number">_</span> <span class="keyword">in</span> x &#125;</span><br><span class="line">    <span class="keyword">return</span> newTimer</span><br><span class="line">&#125;</span><br><span class="line">.subscribe &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Result : \($0)"</span>)</span><br><span class="line">&#125;.disposed(by: bag)</span><br><span class="line">    </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Result : next(0)</span></span><br><span class="line"><span class="comment">Result : next(0)</span></span><br><span class="line"><span class="comment">Result : next(0)</span></span><br><span class="line"><span class="comment">Result : next(1)</span></span><br><span class="line"><span class="comment">Result : next(0)</span></span><br><span class="line"><span class="comment">Result : next(1)</span></span><br><span class="line"><span class="comment">Result : next(1)</span></span><br><span class="line"><span class="comment">Result : next(2)</span></span><br><span class="line"><span class="comment">Result : next(1)</span></span><br><span class="line"><span class="comment">Result : next(2)</span></span><br><span class="line"><span class="comment">Result : next(2)</span></span><br><span class="line"><span class="comment">Result : next(3)</span></span><br><span class="line"><span class="comment">Result : next(2)</span></span><br><span class="line"><span class="comment">Result : next(3)</span></span><br><span class="line"><span class="comment">Result : next(3)</span></span><br><span class="line"><span class="comment">Result : next(3)</span></span><br><span class="line"><span class="comment">Result : completed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">t    : ----------0---------1----------2----------3X</span><br><span class="line">new0 :           ---0---0---0---0x</span><br><span class="line">new1 :                     ---1---1---1---1x</span><br><span class="line">new2 :                                ---2---2---2---2x</span><br><span class="line">new3 :                                           ---3---3---3---3X</span><br><span class="line">subs : -------------0---0---0-1-0-1---1--21--2---2--32--3---3---3x</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-FlatMapFirst"><a href="#3-FlatMapFirst" class="headerlink" title="#3 FlatMapFirst"></a>#3 FlatMapFirst</h2><p>功能与flatMap相同，不过flatMapFirst，合并后只接受第一个元素，其他元素被简单地忽略。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> t = <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;</span><br><span class="line">    .interval(<span class="number">0.5</span>, scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">    .take(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">t.flatMapFirst &#123; (x: <span class="type">Int</span>) -&gt; <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt; <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">let</span> newTimer = <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;</span><br><span class="line">        .interval(<span class="number">0.2</span>, scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">        .take(<span class="number">4</span>)</span><br><span class="line">        .<span class="built_in">map</span> &#123; <span class="number">_</span> <span class="keyword">in</span> x &#125;</span><br><span class="line">    <span class="keyword">return</span> newTimer</span><br><span class="line">    &#125;</span><br><span class="line">    .subscribe &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Result : \($0)"</span>)</span><br><span class="line">    &#125;.disposed(by: bag)</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Result : next(0)</span></span><br><span class="line"><span class="comment">Result : next(0)</span></span><br><span class="line"><span class="comment">Result : next(0)</span></span><br><span class="line"><span class="comment">Result : next(0)</span></span><br><span class="line"><span class="comment">Result : next(2)</span></span><br><span class="line"><span class="comment">Result : next(2)</span></span><br><span class="line"><span class="comment">Result : next(2)</span></span><br><span class="line"><span class="comment">Result : next(2)</span></span><br><span class="line"><span class="comment">Result : completed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t    : ----------0----------1----------2----------3X</span><br><span class="line">new0 :           ---0---0---0---0x</span><br><span class="line">new2 :                                 ---2---2---2---2X</span><br><span class="line">subs : -------------0---0---0---0---------2---2---2---2x</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-FlatMapLatest"><a href="#4-FlatMapLatest" class="headerlink" title="#4 FlatMapLatest"></a>#4 FlatMapLatest</h2><p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3xl8drrayj30dc08r75n.jpg" alt></p>
-<p>flatMapLatest 与 flatMap 的唯一区别是：flatMapLatest 只会接收最新的 value 事<br>件</p>
-<p><code>flatMapLatest</code> 操作符将源 <code>Observable</code> 的每一个元素应用一个转换方法，将他们转换成 <code>Observables</code>。一旦转换出一个新的 <code>Observable</code>，就只发出它的元素，旧的 <code>Observables</code> 的元素将被忽略掉。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> t = <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;</span><br><span class="line">    .interval(<span class="number">0.5</span>, scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">    .take(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">t.flatMapLatest &#123; (x: <span class="type">Int</span>) -&gt; <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt; <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">let</span> newTimer = <span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;</span><br><span class="line">        .interval(<span class="number">0.2</span>, scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">        .take(<span class="number">4</span>)</span><br><span class="line">        .<span class="built_in">map</span> &#123; <span class="number">_</span> <span class="keyword">in</span> x &#125;</span><br><span class="line">    <span class="keyword">return</span> newTimer</span><br><span class="line">    &#125;</span><br><span class="line">    .subscribe &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Result : \($0)"</span>)</span><br><span class="line">    &#125;.disposed(by: bag)</span><br><span class="line">    </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Result : next(0)</span></span><br><span class="line"><span class="comment">Result : next(0)</span></span><br><span class="line"><span class="comment">Result : next(1)</span></span><br><span class="line"><span class="comment">Result : next(1)</span></span><br><span class="line"><span class="comment">Result : next(2)</span></span><br><span class="line"><span class="comment">Result : next(2)</span></span><br><span class="line"><span class="comment">Result : next(3)</span></span><br><span class="line"><span class="comment">Result : next(3)</span></span><br><span class="line"><span class="comment">Result : next(3)</span></span><br><span class="line"><span class="comment">Result : next(3)</span></span><br><span class="line"><span class="comment">Result : completed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">t    : ----------0---------1----------2----------3X</span><br><span class="line">new0 :           ---0---0--x</span><br><span class="line">new1 :                     ---1---1---x</span><br><span class="line">new2 :                                ---2---2---x</span><br><span class="line">new3 :                                           ---3---3---3---3X</span><br><span class="line">subs : -------------0---0-----1---1------2---2------3---3---3---3x</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-Map"><a href="#5-Map" class="headerlink" title="#5 Map"></a>#5 Map</h2><p><img src="http://ww2.sinaimg.cn/large/006tNc79gy1g3zy3t2vumj30he084glx.jpg" alt></p>
-<p>通过对每个值应用一个函数来转换<code>Obervable</code>发出的值，然后返回新的<code>Observable</code></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">    .<span class="built_in">map</span> &#123; $<span class="number">0</span> * <span class="number">10</span> &#125;</span><br><span class="line">    .subscribe(onNext: &#123; <span class="built_in">print</span>($<span class="number">0</span>) &#125;)</span><br><span class="line">    .disposed(by: disposeBag)</span><br><span class="line">    </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">10</span></span><br><span class="line"><span class="comment">20</span></span><br><span class="line"><span class="comment">30</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="6-MapWithIndex"><a href="#6-MapWithIndex" class="headerlink" title="#6 MapWithIndex"></a>#6 MapWithIndex</h2><p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g43ei21redj315g0p2dhd.jpg" alt></p>
-<p>mapWithIndex 也只是在 map 基础上添加了索引参数。</p>
-<h2 id="7-Scan"><a href="#7-Scan" class="headerlink" title="#7 Scan"></a>#7 Scan</h2><p><img src="http://ww1.sinaimg.cn/large/006tNc79ly1g43enmmavzj30h9083t93.jpg" alt></p>
-<p><code>scan</code>将一个输入值作为发出的第一个项，它还将源<code>Observable</code>的元素作为第二项一起反馈回函数，然后通过返回一个新的值作为其第一项发射。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> observable = <span class="type">Observable</span>.from([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line"></span><br><span class="line">observable.scan(<span class="number">1</span>) &#123; (x, y)  <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"x(\(x)) + y(\(y))"</span>)</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line">    &#125;.subscribe &#123; (event) <span class="keyword">in</span></span><br><span class="line">        <span class="built_in">print</span>(event)</span><br><span class="line">    &#125;.disposed(by: bag)</span><br><span class="line">    </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">x(1) + y(1)</span></span><br><span class="line"><span class="comment">next(2)</span></span><br><span class="line"><span class="comment">x(2) + y(2)</span></span><br><span class="line"><span class="comment">next(4)</span></span><br><span class="line"><span class="comment">x(4) + y(3)</span></span><br><span class="line"><span class="comment">next(7)</span></span><br><span class="line"><span class="comment">x(7) + y(4)</span></span><br><span class="line"><span class="comment">next(11)</span></span><br><span class="line"><span class="comment">x(11) + y(5)</span></span><br><span class="line"><span class="comment">next(16)</span></span><br><span class="line"><span class="comment">completed</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="8-ToArray"><a href="#8-ToArray" class="headerlink" title="#8 ToArray"></a>#8 ToArray</h2><p><img src="http://ww2.sinaimg.cn/large/006tNc79ly1g43fa6ah02j30zk0hidkt.jpg" alt></p>
-<p>将源<code>Observable</code>转换成数组的<code>Observable</code>.</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> observable = <span class="type">Observable</span>.of(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">observable.toArray()</span><br><span class="line">    .subscribe &#123; (event) <span class="keyword">in</span></span><br><span class="line">        <span class="built_in">print</span>(event)</span><br><span class="line">    &#125;</span><br><span class="line">    .disposed(by: bag)</span><br><span class="line">    </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">next([1, 2, 3, 4, 5, 6])</span></span><br><span class="line"><span class="comment">completed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -688,355 +527,15 @@
   </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/RxSwift/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lemon Fan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LemonHome">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/05/RxSwift/" class="post-title-link" itemprop="url">RxSwift Creating</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-05 22:34:07" itemprop="dateCreated datePublished" datetime="2019-06-05T22:34:07+08:00">2019-06-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-09 15:52:36" itemprop="dateModified" datetime="2019-06-09T15:52:36+08:00">2019-06-09</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="关于创建Observable"><a href="#关于创建Observable" class="headerlink" title="关于创建Observable"></a>关于创建Observable</h1><h2 id="1-Create"><a href="#1-Create" class="headerlink" title="#1 Create"></a>#1 Create</h2><p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g3uyc0djdrj30zk0b4gn5.jpg" alt></p>
-<p>您可以使用create操作符从零开始创建一个可观察对象，传递给这个操作符一个函数，该函数接受<code>observer</code>作为其参数，通过适当地调用<code>observer</code>的<code>onNext</code>、<code>onError</code>和<code>onCompleted</code>方法，将这个函数编写为一个可观察的函数。<br>需要注意的是一个结构良好的<code>Observable</code>必须调用一次<code>observer</code>的<code>onCompleted</code>或<code>onError</code>方法，并且此后不能尝试调用<code>observer</code>的任何其他方法。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> source : <span class="type">Observable</span> = <span class="type">Observable</span>.create &#123; observer <span class="keyword">in</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> &#123;</span><br><span class="line">        observer.on(.next(i))</span><br><span class="line">    &#125;</span><br><span class="line">    observer.on(.completed)</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Disposables</span>.create &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"disposed"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">source.subscribe &#123;</span><br><span class="line">    <span class="built_in">print</span>($<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*-----</span></span><br><span class="line"><span class="comment">next(1)</span></span><br><span class="line"><span class="comment">next(2)</span></span><br><span class="line"><span class="comment">next(3)</span></span><br><span class="line"><span class="comment">next(4)</span></span><br><span class="line"><span class="comment">next(5)</span></span><br><span class="line"><span class="comment">completed</span></span><br><span class="line"><span class="comment">disposed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-Empty-Never"><a href="#2-Empty-Never" class="headerlink" title="#2 Empty/Never"></a>#2 Empty/Never</h2><p><strong>Empty</strong><br><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g3uycbu1pij30zk0ak3z7.jpg" alt></p>
-<p>创建一个不发出任何项但正常终止的<code>Observable</code>(调用onCompleted)</p>
-<p><strong>Never</strong><br>创建一个不发出任何项且不终止的可观察对象</p>
-<p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g3uyd4f8esj30zk0aawf4.jpg" alt></p>
-<p>Empty/Never这些对于测试目的很有用，有时也可以与其他可观测值结合使用，或者作为期望其他可观测值作为参数的操作符的参数。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> never = <span class="type">Observable</span>&lt;<span class="type">Any</span>&gt;.never()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">let</span> empty = <span class="type">Observable</span>&lt;<span class="type">Any</span>&gt;.empty()</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">never.subscribe &#123; (event) <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"never"</span>)</span><br><span class="line">    <span class="built_in">print</span>(event)</span><br><span class="line">&#125;</span><br><span class="line">.disposed(by: bag)</span><br><span class="line">    </span><br><span class="line">empty.subscribe &#123; (event) <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"empty"</span>)</span><br><span class="line">    <span class="built_in">print</span>(event)</span><br><span class="line">&#125;</span><br><span class="line">.disposed(by: bag)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*------</span></span><br><span class="line"><span class="comment">empty</span></span><br><span class="line"><span class="comment">completed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-From"><a href="#3-From" class="headerlink" title="#3 From"></a>#3 From</h2><p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3uydjfz3yj30zk0hijtq.jpg" alt></p>
-<p>作用将各种其他对象和数据类型转换为可观察的</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> anyArray : [<span class="type">Any</span>] = [<span class="string">"string"</span>, <span class="number">1</span> , <span class="number">0.3</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> source = <span class="type">Observable</span>.from(anyArray)</span><br><span class="line"></span><br><span class="line">source.subscribe &#123;</span><br><span class="line">    <span class="built_in">print</span>($<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*----------</span></span><br><span class="line"><span class="comment">next(string)</span></span><br><span class="line"><span class="comment">next(1)</span></span><br><span class="line"><span class="comment">next(0.3)</span></span><br><span class="line"><span class="comment">completed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="4-Interval"><a href="#4-Interval" class="headerlink" title="#4 Interval"></a>#4 Interval</h2><p>创建一个<code>Observable</code>，它发出一个按给定时间间隔间隔的整数序列<br>Interval操作符返回一个可观察到的值，该值发出一个无限的升序整数序列，在两次发射之间选择一个固定的时间间隔。</p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3uydrallpj30zk0auwg5.jpg" alt></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;.interval(<span class="number">1.0</span>, scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">    .subscribe &#123;</span><br><span class="line">        <span class="built_in">print</span>($<span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    .disposed(by: bag)</span><br><span class="line"><span class="comment">//每1秒发送一次从0开始升序的整数</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="5-Just"><a href="#5-Just" class="headerlink" title="#5 Just"></a>#5 Just</h2><p>创建一个发出特定值的Observable<br>与From类型，但要注意From会将数组里的元素取出再发送出去，而Just只是简单的将数组或对象作为一个单独值发送出去。</p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3uye059czj30zk0h8ab3.jpg" alt></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> source = <span class="type">Observable</span>.just(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">source.subscribe &#123;</span><br><span class="line">    <span class="built_in">print</span>($<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> source2 = <span class="type">Observable</span>.just([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">source2.subscribe &#123;</span><br><span class="line">    <span class="built_in">print</span>($<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* ------</span></span><br><span class="line"><span class="comment">next((1, 2, 3))</span></span><br><span class="line"><span class="comment">completed</span></span><br><span class="line"><span class="comment">next([1, 2, 3])</span></span><br><span class="line"><span class="comment">completed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="6-Range"><a href="#6-Range" class="headerlink" title="#6 Range"></a>#6 Range</h2><p>创建一个<code>Observable</code>，该对象发出特定范围的序列整数</p>
-<p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g3uyew0ldxj30zk0aujss.jpg" alt></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Observable</span>.range(start: <span class="number">1</span>, <span class="built_in">count</span>: <span class="number">3</span>)</span><br><span class="line">    .subscribe&#123;</span><br><span class="line">        <span class="built_in">print</span>($<span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    .disposed(by: bag)</span><br><span class="line">    </span><br><span class="line"><span class="comment">/*------</span></span><br><span class="line"><span class="comment">next(1)</span></span><br><span class="line"><span class="comment">next(2)</span></span><br><span class="line"><span class="comment">next(3)</span></span><br><span class="line"><span class="comment">completed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="7-Repeat"><a href="#7-Repeat" class="headerlink" title="#7 Repeat"></a>#7 Repeat</h2><p>创建一个<code>Observable</code>，该对象多次发出特定的项<br><img src="http://ww1.sinaimg.cn/large/006tNc79gy1g3uyf620exj30zk0gymyj.jpg" alt></p>
-<p>该操作符重复发送一个项。</p>
-<h2 id="8-Timer"><a href="#8-Timer" class="headerlink" title="#8 Timer"></a>#8 Timer</h2><p>创建一个<code>Observable</code>，它在给定的延迟之后发出特定的项</p>
-<p><img src="http://ww4.sinaimg.cn/large/006tNc79gy1g3uyfh665kj30zk0b4t9x.jpg" alt></p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//5秒后发送一个Int值</span></span><br><span class="line"><span class="type">Observable</span>&lt;<span class="type">Int</span>&gt;.timer(<span class="number">5</span>, scheduler: <span class="type">MainScheduler</span>.instance)</span><br><span class="line">    .subscribe &#123;</span><br><span class="line">        <span class="built_in">print</span>($<span class="number">0</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    .disposed(by: bag)</span><br><span class="line"><span class="comment">/*-------</span></span><br><span class="line"><span class="comment">next(0)</span></span><br><span class="line"><span class="comment">completed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="9-Of"><a href="#9-Of" class="headerlink" title="#9 Of"></a>#9 Of</h2><p>此方法创建一个<code>Observable</code>，该实例具有可变数量的元素。<br>功能与From相同，From接受数组为元素，Of接受可变数量的元素</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ofObservable = <span class="type">Observable</span>&lt;<span class="type">Any</span>&gt;.of(<span class="number">1</span>,<span class="string">"test"</span>,<span class="number">0.3</span>)</span><br><span class="line"></span><br><span class="line">ofObservable.subscribe&#123;</span><br><span class="line">    <span class="built_in">print</span>($<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line">.disposed(by: bag)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*-------------</span></span><br><span class="line"><span class="comment">next(1)</span></span><br><span class="line"><span class="comment">next(test)</span></span><br><span class="line"><span class="comment">next(0.3)</span></span><br><span class="line"><span class="comment">completed</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/03/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lemon Fan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LemonHome">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/03/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-03 23:32:32" itemprop="dateCreated datePublished" datetime="2019-06-03T23:32:32+08:00">2019-06-03</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1056,8 +555,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1110,6 +618,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Debounce"><span class="nav-number">1.</span> <span class="nav-text">#1 Debounce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-DistinctUntilChanged"><span class="nav-number">2.</span> <span class="nav-text">#2 DistinctUntilChanged</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-ElementAt"><span class="nav-number">3.</span> <span class="nav-text">#3 ElementAt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Filter"><span class="nav-number">4.</span> <span class="nav-text">#4 Filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-First"><span class="nav-number">5.</span> <span class="nav-text">#5 First</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-IgnoreElements"><span class="nav-number">6.</span> <span class="nav-text">#6 IgnoreElements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Sample"><span class="nav-number">7.</span> <span class="nav-text">#7 Sample</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Single"><span class="nav-number">8.</span> <span class="nav-text">#8 Single</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-Skip"><span class="nav-number">9.</span> <span class="nav-text">#9 Skip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-SkipDuration"><span class="nav-number">10.</span> <span class="nav-text">#10 SkipDuration</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#skipUntil"><span class="nav-number">10.0.1.</span> <span class="nav-text">skipUntil</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#skipWhile"><span class="nav-number">10.0.2.</span> <span class="nav-text">skipWhile</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#11-Take"><span class="nav-number">11.</span> <span class="nav-text">#11 Take</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#take"><span class="nav-number">11.0.1.</span> <span class="nav-text">take</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#take-duration"><span class="nav-number">11.0.2.</span> <span class="nav-text">take(duration)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#takeLast"><span class="nav-number">11.0.3.</span> <span class="nav-text">takeLast</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#takeUntil"><span class="nav-number">11.0.4.</span> <span class="nav-text">takeUntil</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#takeWhile"><span class="nav-number">11.0.5.</span> <span class="nav-text">takeWhile</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-Throttle"><span class="nav-number">12.</span> <span class="nav-text">#12 Throttle</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1238,6 +763,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
 
   
 
@@ -1253,6 +782,8 @@
 
   
 
+
+  
 
 
   
