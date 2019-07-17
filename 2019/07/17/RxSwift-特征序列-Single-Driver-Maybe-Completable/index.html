@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="#1 Single Single 类似 Observable ，但它不会发出一系列的元素，而是只发出一个  onSuccess(value) 或 onError(error)。 Single 比较常见的例子就是执行 HTTP 请求，然后返回一个应答或错误。不过我们也可以用 Single 来描述任何只有一个元素的序列。 Observable 的操作符基本都能在 Single 上使用。 Single">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RxSwift  特征序列:Single&#x2F;Driver&#x2F;Maybe&#x2F;Completable">
+<meta property="og:url" content="http://yoursite.com/2019/07/17/RxSwift-特征序列-Single-Driver-Maybe-Completable/index.html">
+<meta property="og:site_name" content="LemonHome">
+<meta property="og:description" content="#1 Single Single 类似 Observable ，但它不会发出一系列的元素，而是只发出一个  onSuccess(value) 或 onError(error)。 Single 比较常见的例子就是执行 HTTP 请求，然后返回一个应答或错误。不过我们也可以用 Single 来描述任何只有一个元素的序列。 Observable 的操作符基本都能在 Single 上使用。 Single">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4jd4qidqjj30g90bjt9b.jpg">
+<meta property="og:updated_time" content="2019-07-17T15:18:51.881Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RxSwift  特征序列:Single&#x2F;Driver&#x2F;Maybe&#x2F;Completable">
+<meta name="twitter:description" content="#1 Single Single 类似 Observable ，但它不会发出一系列的元素，而是只发出一个  onSuccess(value) 或 onError(error)。 Single 比较常见的例子就是执行 HTTP 请求，然后返回一个应答或错误。不过我们也可以用 Single 来描述任何只有一个元素的序列。 Observable 的操作符基本都能在 Single 上使用。 Single">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNc79gy1g4jd4qidqjj30g90bjt9b.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="LemonHome" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/17/RxSwift-特征序列-Single-Driver-Maybe-Completable/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>RxSwift  特征序列:Single/Driver/Maybe/Completable | LemonHome</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LemonHome</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/17/RxSwift-特征序列-Single-Driver-Maybe-Completable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lemon Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LemonHome">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RxSwift  特征序列:Single/Driver/Maybe/Completable
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-17 23:13:35 / Modified: 23:18:51" itemprop="dateCreated datePublished" datetime="2019-07-17T23:13:35+08:00">2019-07-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-Single"><a href="#1-Single" class="headerlink" title="#1 Single"></a>#1 Single</h2><blockquote>
+<p><code>Single</code> 类似 <code>Observable</code> ，但它不会发出一系列的元素，而是只发出一个  <code>onSuccess(value)</code> 或 <code>onError(error)</code>。
+<code>Single</code> 比较常见的例子就是执行 HTTP 请求，然后返回一个应答或错误。不过我们也可以用 <code>Single</code> 来描述任何只有一个元素的序列。 <code>Observable</code> 的操作符基本都能在 <code>Single</code> 上使用。<br> <code>Single</code> 不会共享状态变化</p>
+</blockquote>
+<p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g4jd4qidqjj30g90bjt9b.jpg" alt></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> single = <span class="type">Single</span>&lt;<span class="type">Int</span>&gt;.create &#123; (single) <span class="keyword">in</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//            single(.success(1))</span></span><br><span class="line"></span><br><span class="line">    single(.error(<span class="type">LMError</span>.normal))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="type">Disposables</span>.create &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">single.subscribe(onSuccess: &#123; (index) <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(index)</span><br><span class="line">&#125;, onError: &#123;error <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(error)</span><br><span class="line">&#125;).disposed(by: bag)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Driver"><a href="#2-Driver" class="headerlink" title="#2 Driver"></a>#2 Driver</h2><p><code>Driver</code> 的目标是提供一种简便的方式在 UI 层编写响应式代码。<br>如果我们的序列满足如下特征，就可以使用它：<br>1.不会产生 <code>error</code> 事件<br>2.一定在主线程监听（MainScheduler）<br>3.共享状态变化（shareReplayLatestWhileConnected）</p>
+<h2 id="3-Maybe"><a href="#3-Maybe" class="headerlink" title="#3 Maybe"></a>#3 Maybe</h2><p><code>Maybe</code> 是 <code>Observable</code> 的另外一个版本。它介于 <code>Single</code> 和 <code>Completable</code> 之间，它要么只能发出一个元素，要么产生一个 completed 事件，要么产生一个 error 事件。</p>
+<p>发出一个元素或者一个 <code>completed</code> 事件或者一个 <code>error</code> 事件<br>不会共享附加作用<br>如果你遇到那种可能需要发出一个元素，又可能不需要发出时，就可以使用 <code>Maybe</code>。</p>
+<h2 id="4-Completable"><a href="#4-Completable" class="headerlink" title="#4 Completable"></a>#4 Completable</h2><p><code>Completable</code> 是 <code>Observable</code> 的另外一个版本。不像 <code>Observable</code> 可以发出多个元素，它要么只能产生一个 <code>completed</code> 事件，要么产生一个 <code>error</code> 事件。</p>
+<p>发出零个元素<br>发出一个 completed 事件或者一个 error 事件<br>不会共享附加作用<br>Completable 适用于那种你只关心任务是否完成，而不需要在意任务返回值的情况。它和 Observable<void> 有点相似。</void></p>
+<h2 id="5-什么是共享状态变化"><a href="#5-什么是共享状态变化" class="headerlink" title="#5 什么是共享状态变化"></a>#5 什么是共享状态变化</h2><blockquote>
+<p>共享 附加作用：<br>Driver<br>Signal<br>ControlEvent</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>不共享 附加作用：<br>Single<br>Completable<br>Maybe</p>
+</blockquote>
+<hr>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> observable =  <span class="type">Observable</span>&lt;<span class="type">String</span>&gt;.create &#123; (observer) -&gt; <span class="type">Disposable</span> <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Create Observable"</span>)</span><br><span class="line">    <span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">        observer.onNext(<span class="string">"value"</span>)</span><br><span class="line">        observer.onCompleted()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Disposables</span>.create &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//共享附加作用</span></span><br><span class="line"><span class="keyword">let</span> shareSide = observable.asDriver(onErrorJustReturn: <span class="string">"empty"</span>)</span><br><span class="line"></span><br><span class="line">shareSide.drive(onNext: &#123; (value) <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"observer1 \(value)"</span>)</span><br><span class="line">&#125;).disposed(by: bag)</span><br><span class="line"></span><br><span class="line">shareSide.drive(onNext: &#123; (value) <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"observer2 \(value)"</span>)</span><br><span class="line">&#125;).disposed(by: bag)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Create Observable</span></span><br><span class="line"><span class="comment">observer1 value</span></span><br><span class="line"><span class="comment">observer2 value</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//不共享附加作用</span></span><br><span class="line"><span class="keyword">let</span> notShareSingle = observable.asSingle()</span><br><span class="line"></span><br><span class="line">notShareSingle.subscribe(onSuccess: &#123; (value) <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"observer1 \(value)"</span>)</span><br><span class="line">&#125;).disposed(by: bag)</span><br><span class="line"></span><br><span class="line">notShareSingle.subscribe(onSuccess: &#123; (value) <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"observer2 \(value)"</span>)</span><br><span class="line">&#125;).disposed(by: bag)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Create Observable</span></span><br><span class="line"><span class="comment">Create Observable</span></span><br><span class="line"><span class="comment">observer1 value</span></span><br><span class="line"><span class="comment">observer2 value</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>因此我们需要注意，如果一个网络请求序列，他不共享 附加作用，那每一次订阅时就会单独发起网络请求。这时最好改用 共享 附加作用 的序列，或者使用 share 操作符。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/30/RxSwift-Subject/" rel="next" title="RxSwift Subject">
+                <i class="fa fa-chevron-left"></i> RxSwift Subject
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Lemon Fan</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Single"><span class="nav-number">1.</span> <span class="nav-text">#1 Single</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Driver"><span class="nav-number">2.</span> <span class="nav-text">#2 Driver</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Maybe"><span class="nav-number">3.</span> <span class="nav-text">#3 Maybe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Completable"><span class="nav-number">4.</span> <span class="nav-text">#4 Completable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-什么是共享状态变化"><span class="nav-number">5.</span> <span class="nav-text">#5 什么是共享状态变化</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lemon Fan</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

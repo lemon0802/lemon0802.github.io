@@ -288,6 +288,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/17/RxSwift-特征序列-Single-Driver-Maybe-Completable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lemon Fan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LemonHome">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/17/RxSwift-特征序列-Single-Driver-Maybe-Completable/" class="post-title-link" itemprop="url">RxSwift  特征序列:Single/Driver/Maybe/Completable</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-17 23:13:35 / Modified: 23:18:51" itemprop="dateCreated datePublished" datetime="2019-07-17T23:13:35+08:00">2019-07-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-Single"><a href="#1-Single" class="headerlink" title="#1 Single"></a>#1 Single</h2><blockquote>
+<p><code>Single</code> 类似 <code>Observable</code> ，但它不会发出一系列的元素，而是只发出一个  <code>onSuccess(value)</code> 或 <code>onError(error)</code>。
+<code>Single</code> 比较常见的例子就是执行 HTTP 请求，然后返回一个应答或错误。不过我们也可以用 <code>Single</code> 来描述任何只有一个元素的序列。 <code>Observable</code> 的操作符基本都能在 <code>Single</code> 上使用。<br> <code>Single</code> 不会共享状态变化</p>
+</blockquote>
+<p><img src="http://ww3.sinaimg.cn/large/006tNc79gy1g4jd4qidqjj30g90bjt9b.jpg" alt></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> single = <span class="type">Single</span>&lt;<span class="type">Int</span>&gt;.create &#123; (single) <span class="keyword">in</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//            single(.success(1))</span></span><br><span class="line"></span><br><span class="line">    single(.error(<span class="type">LMError</span>.normal))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="type">Disposables</span>.create &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">single.subscribe(onSuccess: &#123; (index) <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(index)</span><br><span class="line">&#125;, onError: &#123;error <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(error)</span><br><span class="line">&#125;).disposed(by: bag)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Driver"><a href="#2-Driver" class="headerlink" title="#2 Driver"></a>#2 Driver</h2><p><code>Driver</code> 的目标是提供一种简便的方式在 UI 层编写响应式代码。<br>如果我们的序列满足如下特征，就可以使用它：<br>1.不会产生 <code>error</code> 事件<br>2.一定在主线程监听（MainScheduler）<br>3.共享状态变化（shareReplayLatestWhileConnected）</p>
+<h2 id="3-Maybe"><a href="#3-Maybe" class="headerlink" title="#3 Maybe"></a>#3 Maybe</h2><p><code>Maybe</code> 是 <code>Observable</code> 的另外一个版本。它介于 <code>Single</code> 和 <code>Completable</code> 之间，它要么只能发出一个元素，要么产生一个 completed 事件，要么产生一个 error 事件。</p>
+<p>发出一个元素或者一个 <code>completed</code> 事件或者一个 <code>error</code> 事件<br>不会共享附加作用<br>如果你遇到那种可能需要发出一个元素，又可能不需要发出时，就可以使用 <code>Maybe</code>。</p>
+<h2 id="4-Completable"><a href="#4-Completable" class="headerlink" title="#4 Completable"></a>#4 Completable</h2><p><code>Completable</code> 是 <code>Observable</code> 的另外一个版本。不像 <code>Observable</code> 可以发出多个元素，它要么只能产生一个 <code>completed</code> 事件，要么产生一个 <code>error</code> 事件。</p>
+<p>发出零个元素<br>发出一个 completed 事件或者一个 error 事件<br>不会共享附加作用<br>Completable 适用于那种你只关心任务是否完成，而不需要在意任务返回值的情况。它和 Observable<void> 有点相似。</void></p>
+<h2 id="5-什么是共享状态变化"><a href="#5-什么是共享状态变化" class="headerlink" title="#5 什么是共享状态变化"></a>#5 什么是共享状态变化</h2><blockquote>
+<p>共享 附加作用：<br>Driver<br>Signal<br>ControlEvent</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>不共享 附加作用：<br>Single<br>Completable<br>Maybe</p>
+</blockquote>
+<hr>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> observable =  <span class="type">Observable</span>&lt;<span class="type">String</span>&gt;.create &#123; (observer) -&gt; <span class="type">Disposable</span> <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"Create Observable"</span>)</span><br><span class="line">    <span class="type">DispatchQueue</span>.main.async &#123;</span><br><span class="line">        observer.onNext(<span class="string">"value"</span>)</span><br><span class="line">        observer.onCompleted()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="type">Disposables</span>.create &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//共享附加作用</span></span><br><span class="line"><span class="keyword">let</span> shareSide = observable.asDriver(onErrorJustReturn: <span class="string">"empty"</span>)</span><br><span class="line"></span><br><span class="line">shareSide.drive(onNext: &#123; (value) <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"observer1 \(value)"</span>)</span><br><span class="line">&#125;).disposed(by: bag)</span><br><span class="line"></span><br><span class="line">shareSide.drive(onNext: &#123; (value) <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"observer2 \(value)"</span>)</span><br><span class="line">&#125;).disposed(by: bag)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Create Observable</span></span><br><span class="line"><span class="comment">observer1 value</span></span><br><span class="line"><span class="comment">observer2 value</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//不共享附加作用</span></span><br><span class="line"><span class="keyword">let</span> notShareSingle = observable.asSingle()</span><br><span class="line"></span><br><span class="line">notShareSingle.subscribe(onSuccess: &#123; (value) <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"observer1 \(value)"</span>)</span><br><span class="line">&#125;).disposed(by: bag)</span><br><span class="line"></span><br><span class="line">notShareSingle.subscribe(onSuccess: &#123; (value) <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"observer2 \(value)"</span>)</span><br><span class="line">&#125;).disposed(by: bag)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Create Observable</span></span><br><span class="line"><span class="comment">Create Observable</span></span><br><span class="line"><span class="comment">observer1 value</span></span><br><span class="line"><span class="comment">observer2 value</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>因此我们需要注意，如果一个网络请求序列，他不共享 附加作用，那每一次订阅时就会单独发起网络请求。这时最好改用 共享 附加作用 的序列，或者使用 share 操作符。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/30/RxSwift-Subject/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1423,7 +1588,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
